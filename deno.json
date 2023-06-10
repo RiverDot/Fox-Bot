@@ -1,0 +1,8 @@
+{
+    "tasks": {
+        "start": "deno run --allow-env --allow-all mod.ts"
+    },
+    "imports": {
+        "overfast-api-client": "github:Sipixer/overfast-api-client"
+    }
+}
