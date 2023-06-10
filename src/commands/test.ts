@@ -1,4 +1,5 @@
 import { ApplicationCommandTypes, InteractionResponseTypes} from '../../deps.ts'
+import { ComponentsBuilder } from '../utils/builders/component.ts'
 import { createCommand } from './mod.ts'
 import Overwatch from "https://esm.sh/gh/Sipixer/overfast-api-client";
 
@@ -8,19 +9,13 @@ createCommand({
     type: ApplicationCommandTypes.ChatInput,
     execute: async (Bot, interaction) => {
 
-
-        const button2 = new Components()
-            .setType(2)
-            .setStyle(4)
-            .setLabel("DO NOT CLICK")
-            .setCustomId("12345");
-
+        const button2 = new ComponentsBuilder().button('test', 'Primary', 'buttonTest', {emoji: '😁'})
 
         await Bot.helpers.sendInteractionResponse(interaction.id, interaction.token, {
             type: InteractionResponseTypes.ChannelMessageWithSource,
             data: {
-                components: [button2],
-                content: ``,
+                components: button2,
+                content: `Hello from the other side`,
             },
         })
     },
