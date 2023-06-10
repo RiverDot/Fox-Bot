@@ -5,6 +5,8 @@ FROM denoland/deno:alpine
 
 WORKDIR /app
 
+RUN chown -R deno:deno /app
+
 # Prefer not to run as root.
 USER deno
 
